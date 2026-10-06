@@ -1,0 +1,13 @@
+{
+  "name": "steam-production-roadmap",
+  "version": "1.0.0",
+  "private": true,
+  "description": "One-screen production and release roadmap for Steam games, with Steam and studio rules enforced.",
+  "scripts": {
+    "test": "node --test",
+    "start": "python -m http.server 8000"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

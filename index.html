@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Steam Production Roadmap</title>
+  <meta name="description" content="One-screen production and release roadmap for Steam games, with Valve's rules and studio rules enforced as you plan.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='9' y='9' width='14' height='14' rx='2' transform='rotate(45 16 16)' fill='%232f6fe4'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-screen="project">
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark" aria-hidden="true"></span>Steam Roadmap</div>
+
+    <div class="seg" role="tablist" aria-label="View">
+      <button type="button" data-view="project">Project</button>
+      <button type="button" data-view="overview">All projects</button>
+    </div>
+
+    <div class="group">
+      <select id="projectSelect" aria-label="Project"></select>
+      <button type="button" class="btn" id="newProjectBtn">+ New project</button>
+    </div>
+
+    <div class="grow"></div>
+
+    <label class="group project-only" title="Next Fest edition for this game (one per game)">
+      <span class="muted">Next Fest</span>
+      <select id="nfSelect"></select>
+    </label>
+
+    <label class="switch-label project-only" title="When on, every move respects the rules">
+      <span class="switch"><input type="checkbox" id="enforceToggle"><span class="switch-track"></span></span>
+      Enforce rules
+    </label>
+
+    <button type="button" class="btn project-only" id="rulesBtn">Rules <span class="badge" id="rulesBadge" hidden>0</span></button>
+    <button type="button" class="btn" id="eventsBtn">Steam events</button>
+
+    <div class="group">
+      <button type="button" class="btn icon" id="undoBtn" title="Undo (Ctrl+Z)" aria-label="Undo">↶</button>
+      <button type="button" class="btn icon" id="redoBtn" title="Redo (Ctrl+Y)" aria-label="Redo">↷</button>
+    </div>
+
+    <div class="menu-wrap">
+      <button type="button" class="btn icon" id="moreBtn" aria-haspopup="true" aria-expanded="false" aria-label="More">⋯</button>
+      <div class="menu" id="moreMenu" hidden>
+        <button type="button" data-menu="rename" class="project-only">Rename project</button>
+        <button type="button" data-menu="duplicate" class="project-only">Duplicate project</button>
+        <button type="button" data-menu="delete" class="project-only danger-text">Delete project</button>
+        <hr class="project-only">
+        <button type="button" data-menu="export">Export JSON</button>
+        <button type="button" data-menu="import">Import JSON</button>
+        <hr>
+        <label class="menu-check" data-menu="fests"><input type="checkbox" id="showFestsToggle"> Show themed fests</label>
+      </div>
+    </div>
+  </header>
+
+  <div class="workspace">
+    <main id="main" tabindex="-1"></main>
+    <aside id="drawer" class="drawer" hidden aria-label="Details"></aside>
+  </div>
+
+  <footer class="statusbar" id="statusbar"></footer>
+
+  <div id="tooltip" class="tooltip" hidden role="tooltip"></div>
+  <div id="toast" class="toast" hidden role="status" aria-live="polite"></div>
+  <dialog id="dialog"></dialog>
+  <input type="file" id="importFile" accept="application/json,.json" hidden>
+
+  <script src="js/dates.js"></script>
+  <script src="js/steam-events.js"></script>
+  <script src="js/template.js"></script>
+  <script src="js/engine.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/timeline.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
